@@ -1,0 +1,26 @@
+// Method 1. Pass By Value
+// program to Demonstrate working of passing object as Parameter to function
+#include<iostream>
+using namespace std;
+class program{
+    public : int x;
+    program(int y){   // Parameterized constructor of class program
+    x = y;
+    }
+void Display(){
+    cout<<"\n Value of x is "<<x;
+}
+};
+void modify(program obj2){  //modify function will accept object as parameter
+// any change applied by this project inside this function definition 
+// will not affect the original value of x passed by object1.
+obj2.x= 20;
+cout<<"\n Modified Value of x by object2 is "<<obj2.x;
+}
+int main(){
+    program obj1(5);
+    obj1.Display();
+    modify(obj1); //calling modify function with class object
+    obj1.Display();
+    return 0;
+}
