@@ -1,0 +1,57 @@
+/*Write a program to create two classes ,
+1. class Login_Details,
+with functions as:-
+a. validate() accept Login password(default 1234) from user
+b. Display() display message on screen "Welcome to MyApp"
+2. class user_profile
+with functions as:-
+a. Accept() accept username,emailid and name from user
+b. Display() will display information entered by the user on screen.*/
+#include<iostream>
+using namespace std;
+class Login_Details
+{
+    private : int password;
+public : int validate()
+{
+    cout<<"Enter your password";
+    cin>>password;
+    if(password==1234)
+    {
+        return 1;
+    }
+}
+public : void Display()
+{
+     cout<<"\n Welcome to MyApp";
+}
+};
+class User_Profile
+{
+   private : string username; string emailid; string name;
+public : void  Accept()
+{
+    cout<<"Enter your username";
+    cout<<"\n Enter your emailid";
+    cout<<"\n Enter your name";
+    cin>>username;
+    cin>>emailid;
+    cin>>name;
+}
+public :  void Display()
+{
+    cout<<"Display your username";
+    cout<<"\nDisplay your emailid";
+    cout<<"\nDisplay your name";
+}
+};
+int main()
+{
+    Login_Details obj1;
+    obj1.validate();
+    obj1.Display();
+    User_Profile obj2;
+    obj2.Accept();
+    obj2.Display();
+    return 0;
+}
