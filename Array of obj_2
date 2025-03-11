@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+class Books_Management_System{
+    private : int BookId;
+    string BookName;
+    public : Books_Management_System(int Id,string Name){
+        BookId = Id;
+        BookName = Name;
+    }
+    public : void Display(){
+        cout<<"Book Id is"<<BookId<<"\t Book Name is "<<BookName<<endl;
+    }
+};
+int main(){
+    Books_Management_System obj[5]={{1,"cpp"},{2,"Java"},{3,"Php"},{4,"c"},{5,"c#"}};
+    int i;
+    for(i=0;i<0;i++){
+        obj[i].Display(); 
+    }
+}
