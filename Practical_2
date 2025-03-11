@@ -1,0 +1,64 @@
+//To create a course class,its constructor , destructor and member functions. 
+#include <iostream>
+
+using namespace std;
+
+class Course {
+public:
+    string CourseName;
+    int CourseID;
+    int CourseCredits;
+
+    Course(string Name, int ID, int Credits) {
+        CourseName = Name;
+        CourseID = ID;
+        CourseCredits = Credits;
+    }
+
+    void Display() {
+        cout << "\nCourse Name: " << CourseName << "\tCourse ID: " << CourseID;
+        cout << "\nCourse Credits: " << CourseCredits << endl;
+    }
+
+    void CourseAssignment() {
+        float per, att;
+        cout << "\nEnter Your Percentage and Attendance: ";
+        cin >> per >> att;
+
+        if (per >= 80 || att >= 90) {
+            cout << "\nYou are eligible for all courses (C, C++, Java, SQL, PHP)";
+        } else if (per >= 70 || att >= 80) {
+            cout << "\nYou are eligible for Java.";
+        } else if (per >= 60 || att >= 70) {
+            cout << "\nYou are eligible for C++.";
+        } else if (per >= 50 || att >= 60) {
+            cout << "\nYou are eligible for PHP.";
+        } else if (per >= 50 || att >= 50) {
+            cout << "\nYou are eligible for C.";
+        } else {
+            cout << "\nYou are not eligible for any course.";
+        }
+    }
+
+    ~Course() {
+        cout << "\nDestructor invoked for Course: " << CourseName;
+    }
+};
+
+int main() {
+    Course obj[5] = {
+        {"C", 1, 8},
+        {"C++", 2, 6},
+        {"Java", 3, 4},
+        {"SQL", 4, 12},
+        {"PHP", 5, 16}
+    };
+
+    for (int i = 0; i < 5; i++) {
+        obj[i].Display();
+    }
+
+    obj[0].CourseAssignment();  // Accept user input for percentage & attendance
+
+    return 0;
+}
