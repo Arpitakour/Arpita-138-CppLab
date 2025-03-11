@@ -1,0 +1,30 @@
+/*Write a program to create a class with name Area and with constructor which set default radius = 10 and create a function calculate()
+which calculate area of circle*/
+#include<iostream>
+using namespace std;
+class Area{
+    private : float radius,res;
+    public : Area()
+    {
+        radius=10;
+    }
+    public : Area(float r)
+    {
+      radius =r;
+    }
+    public : void Calculate(){
+        res= 3.14*radius *radius;
+        cout<<"\n Area of circle is"<<res;
+    }
+};
+int main(){
+    Area obj;
+    obj.Calculate();
+    float r1;
+    cout<<"Enter radius"; 
+    cin>>r1;
+    Area obj1(r1);
+    obj1.Calculate();
+    return 0;
+    
+}
