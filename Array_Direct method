@@ -1,0 +1,25 @@
+/*program to demonstrate Array Initialization using Direct method.*/
+#include<iostream>
+using namespace std;
+class ArrayProgram
+{
+    private :
+    int a[5];     //Declaration of Array
+    int b[5]={1,2,3,4,5};      //Declaration and Initialization of Array
+    public : void Display(){
+        a[0] = 3;   //storing array element at index 0 using direct method
+        a[1] = 4;   //storing array element at index 1 using direct method
+        cout<<"\n Element at index 0 is "<<a[0];
+        cout<<"\n Element at index 1 is "<<a[1];
+        cout<<"\n Enter array array element ";
+        cin>>a[2];     // Accepting Array elements form user and stored at index 2;
+        cout<<"\n Element at index 2 is "<<a[2];
+        cout<<"\n Element of array b at position 0 is "<<b[0];
+        // Display element of array b from position 1 at index 0;
+    }
+};
+int main(){
+   ArrayProgram obj;
+   obj.Display();
+   return 0;
+}
