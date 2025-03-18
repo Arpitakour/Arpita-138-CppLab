@@ -1,0 +1,33 @@
+// To allocate appropriate access specifiers to data members of student and course class.
+#include<iostream>
+using namespace std;
+class Student{
+    private: string studentname; int id; float marks;
+    public: Student(string name, int id, float mark){
+        studentname=name; this->id=id; this->marks=mark;
+    }
+    void Display(){
+        cout<<"\nStudent Name: "<<studentname<<"\tStudent Id: "<<id;
+        cout<<"\nStudent Marks: "<<marks;
+    } 
+};
+class Course{
+    private: string CourseName; int CourseID; int CourseCredit;
+    public: Course(string name, int id, int credit){
+        CourseName=name; CourseID=id; CourseCredit=credit;
+    }
+    void Display(){
+        cout<<"\nCourse Name: "<<CourseName<<"\tCourse Id: "<<CourseID;
+        cout<<"\nCourse Credit: "<<CourseCredit;
+    }
+};
+int main() {
+    Student obj("ABC",1,98);
+    obj.Display();
+    Course obj1[2]={{"Ram",60,4},{"Sham",45,5}};
+    int i;
+    for(i=0;i<=1;i++){
+        obj1[i].Display();
+    }
+    return 0;
+}
