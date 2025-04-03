@@ -1,0 +1,34 @@
+
+ //Program single level inheritance (student Management system)
+ #include<iostream>
+ using namespace std;
+ class MyApp       //parent class
+ {
+    public : void Welcome_Message()
+    {
+        cout<<"Welcome to student Management App";
+    }
+ };
+ class studentInfo : public MyApp   // child class
+                                    // syntax class child class name sign of inheritance
+                                    // public parent class
+{
+    private : int pass=123,pass1;
+public : void Login()
+{
+cout<<"\n Enter Your Password";
+cin>>pass1;
+if(pass == pass1){
+    cout<<"\n Login successful";
+}
+else{
+    cout<<"\n Login Failed";
+}
+}
+};
+int main()
+{
+    studentInfo obj;    //child class object
+    obj.Welcome_Message();  // calling parent class function with child class object
+    return 0;
+}
