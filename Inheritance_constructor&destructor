@@ -1,0 +1,35 @@
+/*Inheritance And Constructor , Destructor
+In Inheritance constructor follows Top to Bottom approach , first base class destructor will called and then child class constructor.
+Destructor follows Bottom up approach , first child class destructor called and then parent class. */
+#include<iostream>
+using namespace std;
+class Parent{
+    public : Parent(){
+        cout<<"Parent class constructor";
+    }
+    public : ~Parent(){
+        cout<<"\n Parent class Destructor";
+    }
+};
+class child : public Parent{
+    public : child(){
+        cout<<"child class constructor";
+    }
+    public : ~child(){
+        cout<<"\n child class Destructor";
+    }
+};
+class Grand_child : public child
+{
+    public : Grand_child(){
+        cout<<"\n Grand_child class constructor";
+    }
+    public : ~Grand_child(){
+        cout<<"\n Grand_child class Destructor";
+    }
+};
+int main(){
+    Grand_child obj;
+    return 0;
+    
+}
