@@ -1,0 +1,121 @@
+/*Example :- Multiple Inheritance
+Write a program to 
+a. create a base class 1 with name skill_course
+b. create a Function with name list1() which display and allow student to opt for a skill course from the list
+List contains details like :- 
+1. C , 2. Cpp , 3. Java , c#
+c. create a base class 2 with name shortTerm_course
+create a function  with name List2() which display and allow student to opt for a short term course from list
+List contains details like :- 
+1. cybersecurity , 2. Ethical Hacking , 3. Mern Dev , 4. Full stack development
+d. create a base class 3 with name specialization_course
+create a Function with name List3() which display and allow student to opt for a specialization course from the list
+List contains details like :-
+1. AI / ML  , 2. DevOpp , 3. software Architecture , 4. software Testing
+e. create a derived class 1 with name select_course
+f. create a function select() which allow to select 1 course from each list and display all options selected by the student on screen.*/
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class 1: Skill_Course
+class Skill_Course {
+protected:
+    string skillChoice;
+public:
+    void List() {
+        cout << "\nSkill Courses Available:" << endl;
+        cout << "1. C" << endl;
+        cout << "2. C++" << endl;
+        cout << "3. Java" << endl;
+        cout << "4. C#" << endl;
+        
+        int choice;
+        cout << "Enter your choice (1 to 4): ";
+        cin >> choice;
+        
+        switch(choice) {
+            case 1: skillChoice = "C"; break;
+            case 2: skillChoice = "C++"; break;
+            case 3: skillChoice = "Java"; break;
+            case 4: skillChoice = "C#"; break;
+            default: skillChoice = "Invalid Skill Course";
+        }
+    }
+};
+
+// Base class 2: ShortTerm_Course
+class ShortTerm_Course {
+protected:
+    string shortTermChoice;
+public:
+    void List2() {
+        cout << "\nShort Term Courses Available:" << endl;
+        cout << "1. Cyber Security" << endl;
+        cout << "2. Ethical Hacking" << endl;
+        cout << "3. Mern Dev" << endl;
+        cout << "4. Full Stack Development" << endl;
+        
+        int choice;
+        cout << "Enter your choice (1 to 4): ";
+        cin >> choice;
+        
+        switch(choice) {
+            case 1: shortTermChoice = "Cyber Security"; break;
+            case 2: shortTermChoice = "Ethical Hacking"; break;
+            case 3: shortTermChoice = "Mern Dev"; break;
+            case 4: shortTermChoice = "Full Stack Development"; break;
+            default: shortTermChoice = "Invalid Short Term Course";
+        }
+    }
+};
+
+// Base class 3: Specialization_Course
+class Specialization_Course {
+protected:
+    string specializationChoice;
+public:
+    void List3() {
+        cout << "\nSpecialization Courses Available:" << endl;
+        cout << "1. AI/ML" << endl;
+        cout << "2. DevOps" << endl;
+        cout << "3. Software Architecture" << endl;
+        cout << "4. Software Testing" << endl;
+        
+        int choice;
+        cout << "Enter your choice (1 to 4): ";
+        cin >> choice;
+        
+        switch(choice) {
+            case 1: specializationChoice = "AI/ML"; break;
+            case 2: specializationChoice = "DevOps"; break;
+            case 3: specializationChoice = "Software Architecture"; break;
+            case 4: specializationChoice = "Software Testing"; break;
+            default: specializationChoice = "Invalid Specialization Course";
+        }
+    }
+};
+
+// Derived class: Select_Course (multiple inheritance)
+class Select_Course : public Skill_Course, public ShortTerm_Course, public Specialization_Course {
+public:
+    void Select() {
+        // Call all list functions
+        List();
+        List2();
+        List3();
+        
+        // Display all selections
+        cout << "\n\nYour Course Selections:" << endl;
+        cout << "Skill Course: " << skillChoice << endl;
+        cout << "Short Term Course: " << shortTermChoice << endl;
+        cout << "Specialization Course: " << specializationChoice << endl;
+    }
+};
+
+int main() {
+    Select_Course student;
+    cout << "Welcome to Course Selection System" << endl;
+    student.Select();
+    return 0;
+}
