@@ -1,0 +1,31 @@
+/*Example 2:- In Banking Application , we have private data like Account Holder name, Account number and Balance in a Account class.
+Here friend function Auditor() function can check salary of all Employees with limited access which is not further accessible to other 
+non member functions or class.*/
+#include<iostream>
+using namespace std;
+class Account{
+    private : int Account_Number;string Account_Holder_Name;float Balance;
+    public : Account(int Number , string Name , float Bal){
+        Account_Number = Number;
+        Account_Holder_Name = Name;
+        Balance = Bal;
+    }
+    void Display(){
+        cout<<"\n Account Holder Number "<<Account_Number<<"and Balance is "<<Balance;
+    }
+    friend void Auditor(Account obj);   // Friend Function Declaration
+};
+void Auditor(Account obj){
+    cout<<"\n Auditor Account";
+    obj.Balance = 300000;
+   // cout<<"\n Balance "<<obj.Balance<<" Account Number "<<obj.Account_Number;
+}
+int main(){
+    Account obj1(1001,"User1",100000);
+    Account obj2(1002,"User2",200000);
+    obj1.Display();
+    obj2.Display();
+    Auditor(obj1);
+    obj1.Display();
+    return 0;
+}
