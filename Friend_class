@@ -1,0 +1,46 @@
+/* In Employee Management System , we have private information of Employee like Employee Name , Employee ID
+, and Salary, Current Project.
+Manager Class is a friend class of Employee CLass which can access private member of Employee class to monitor current 
+Project or salary of a Employee.  */
+#include<iostream>
+using namespace std;
+
+class Employee {
+private:
+    int EmployeeID;
+    string Employee_Name;
+    float Salary;
+public:
+    Employee(int ID, string Name, float Sal) {
+        EmployeeID = ID;
+        Employee_Name = Name;
+        Salary = Sal;
+    }
+    void Display() {
+        cout << "\nEmployee Name is " << Employee_Name;
+        cout << "\nEmployee ID is " << EmployeeID;
+        cout << "\nSalary is " << Salary;
+    }
+    friend class Manager;
+};
+
+class Manager {
+public:
+    void Show(const Employee& obj) {
+        cout << "\nManager Login";
+        cout << "\nEmployee ID " << obj.EmployeeID << " has salary = " << obj.Salary;
+    }
+};
+
+int main() {
+    Employee obj1(101, "Emp1", 100000);
+    Employee obj2(102, "Emp2", 200000);
+    obj1.Display();
+    obj2.Display();
+    Manager obj3;
+    obj3.Show(obj2);
+
+    return 0;
+}
+
+
